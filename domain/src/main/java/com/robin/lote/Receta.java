@@ -1,6 +1,7 @@
 package com.robin.lote;
 
 import co.com.sofka.domain.generic.Entity;
+import com.robin.lote.values.Batch;
 import com.robin.lote.values.Nombre;
 import com.robin.lote.values.RecetaId;
 import com.robin.lote.values.TipoCerveza;
