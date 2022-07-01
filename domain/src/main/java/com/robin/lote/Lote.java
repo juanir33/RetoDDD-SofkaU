@@ -31,27 +31,44 @@ public class Lote extends AggregateEvent<LoteId> {
 
     }
     public void agregarTarea(TareaId tareaId, TipoTarea tipoTarea, Descripcion descripcion, Tiempo tiempo){
+        Objects.requireNonNull(tareaId);
+        Objects.requireNonNull(tipoTarea);
+        Objects.requireNonNull(descripcion);
+        Objects.requireNonNull(tiempo);
         appendChange(new TareaAgregada(tareaId, tipoTarea, descripcion, tiempo)).apply();
     }
-    public void agregarTanque(TanqueId tanqueId, TipoTanque tipoTanque, Capacidad capacidad) {
-        appendChange(new TanqueAgregado(tanqueId, tipoTanque, capacidad)).apply();
+    public void agregarTanque(TanqueId tanqueId, TipoTanque tipoTanque, Capacidad capacidad, Etapa etapa) {
+        Objects.requireNonNull(tanqueId);
+        Objects.requireNonNull(tipoTanque);
+        Objects.requireNonNull(capacidad);
+        Objects.requireNonNull(etapa);
+        appendChange(new TanqueAgregado(tanqueId, tipoTanque, capacidad, etapa)).apply();
 
     }
     public void agregarReceta(RecetaId entityId, TipoCerveza tipoCerveza, Nombre nombre, Batch batch) {
-        appendChange(new RecetaAgregada(entityId, tipoCerveza, batch)).apply();
+        Objects.requireNonNull(tipoCerveza);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(batch);
+
+        appendChange(new RecetaAgregada(entityId, tipoCerveza,nombre, batch)).apply();
 
     }
     public void actualizarEtapaTanque(Etapa etapa){
         appendChange(new EtapaTanqueActualizada(etapa)).apply();
     }
     public void actualizarTiempoTarea(TareaId tareaId, Tiempo tiempo){
+        Objects.requireNonNull(tiempo, "Ingrese tiempo");
+
         appendChange( new TiempoDeTareaActualizado(tareaId, tiempo)).apply();
     }
-    public void actualizarDescripcionTarea(TareaId tareaId, Tiempo tiempo){
-        appendChange( new TiempoDeTareaActualizado(tareaId, tiempo)).apply();
+    public void actualizarDescripcionTarea(TareaId tareaId, Descripcion descripcion){
+        Objects.requireNonNull(tareaId);
+        Objects.requireNonNull(descripcion,"Ingrese una descripcion");
+        appendChange( new DescripcionDeTareaActualizado(tareaId, descripcion)).apply();
     }
 
     public void actualizarNombreReceta(Nombre nombre){
+        Objects.requireNonNull(nombre);
         appendChange(new NombreRecetaCambiado(nombre)).apply();
     }
 

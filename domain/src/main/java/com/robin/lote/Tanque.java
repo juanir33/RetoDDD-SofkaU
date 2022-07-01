@@ -29,7 +29,7 @@ public class Tanque extends Entity<TanqueId> {
         return capacidad;
     }
 
-    public Etapa etapatapa() {
+    public Etapa etapa() {
         return etapa;
     }
 
