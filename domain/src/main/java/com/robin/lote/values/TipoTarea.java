@@ -9,9 +9,9 @@ public class TipoTarea implements ValueObject<String> {
 
     public TipoTarea(String value) {
         this.value = Objects.requireNonNull(value, "Por favor agregue un tipo de tarea");
-        if (value.length() < 4) {
+        if (this.value.length() < 4) {
             throw new IllegalArgumentException(" Debe tener mas de 4 caracteres");
-        } else if (value.length() > 40) {
+        } else if (this.value.length() > 40) {
             throw new IllegalArgumentException("Ha excedido el maximo de carcteres permitido");
         }
     }

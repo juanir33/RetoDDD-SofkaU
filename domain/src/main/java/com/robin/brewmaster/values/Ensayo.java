@@ -9,7 +9,7 @@ public class Ensayo implements ValueObject<String> {
 
     public Ensayo(String value) {
         this.value = Objects.requireNonNull(value);
-        if(value.isBlank()){
+        if(this.value.isBlank()){
             throw new IllegalArgumentException("El ensayo no puede estar vacio");
         }
     }

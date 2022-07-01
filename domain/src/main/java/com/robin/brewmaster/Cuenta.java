@@ -16,8 +16,16 @@ public class Cuenta  extends Entity<CuentaId> {
         this.usuario = usuario;
         this.password = password;
     }
-    public void cambiarUsuario(CuentaId cuentaId, Usuario usuario){
+    public void cambiarPassword(Password password){
+          this.password = password;
 
+    }
 
+    public Password password() {
+        return password;
+    }
+
+    public Usuario usuario() {
+        return usuario;
     }
 }

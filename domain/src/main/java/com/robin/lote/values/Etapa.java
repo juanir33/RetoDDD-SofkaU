@@ -9,9 +9,9 @@ public class Etapa implements ValueObject<String> {
 
     public Etapa(String value) {
         this.value = Objects.requireNonNull(value, "La etapa no puede ser nula");
-        if (value.length() < 3) {
+        if (this.value.length() < 3) {
             throw new IllegalArgumentException("La etapa debe tener mas de 3 caracteres");
-        } else if (value.length() > 20) {
+        } else if (this.value.length() > 20) {
             throw new IllegalArgumentException("Ha excedido el maximo de caracteres permitidos");
         }
     }

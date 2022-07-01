@@ -9,9 +9,9 @@ public class Nombre implements ValueObject<String> {
 
     public Nombre(String value) {
         this.value = Objects.requireNonNull(value, "Agregue un nombre");
-        if (value.length() < 3) {
+        if (this.value.length() < 3) {
             throw new IllegalArgumentException("LEl nombre debe tener mas de 3 caracteres");
-        } else if (value.length() > 20) {
+        } else if (this.value.length() > 20) {
             throw new IllegalArgumentException("Ha excedido el maximo de caracteres permitidos");
         }
     }

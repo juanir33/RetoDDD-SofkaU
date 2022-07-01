@@ -17,7 +17,6 @@ public class Lote extends AggregateEvent<LoteId> {
 
     public Lote(LoteId entityId, BrewmasterId brewmasterId) {
         super(entityId);
-        this.brewmasterId = brewmasterId;
         appendChange(new LoteCreado(brewmasterId)).apply();
     }
 

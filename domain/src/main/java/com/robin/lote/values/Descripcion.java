@@ -9,9 +9,9 @@ public class Descripcion implements ValueObject<String> {
 
     public Descripcion(String value) {
         this.value = Objects.requireNonNull(value, "La descripcion no puede ser nula");
-        if (value.length() < 4) {
+        if (this.value.length() < 4) {
             throw new IllegalArgumentException("La descripcion debe tener mas de 4 caracteres");
-        } else if (value.length() > 1000) {
+        } else if (this.value.length() > 1000) {
             throw new IllegalArgumentException("Ha excedido el maximo de carcteres permitido");
         }
     }

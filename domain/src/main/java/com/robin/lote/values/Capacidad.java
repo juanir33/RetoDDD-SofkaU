@@ -8,7 +8,7 @@ public class Capacidad implements ValueObject<Integer> {
     private final Integer volumen;
     public Capacidad(Integer vol) {
         this.volumen= Objects.requireNonNull(vol, "La capacidad no puede ser nula");
-        if(vol <= 5){
+        if(this.volumen <= 5){
             throw new IllegalArgumentException("La capacidad debe ser 5 o mayor");
         }
 

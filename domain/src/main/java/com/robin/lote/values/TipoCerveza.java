@@ -9,9 +9,9 @@ public class TipoCerveza implements ValueObject<String> {
 
     public TipoCerveza (String value) {
         this.value = Objects.requireNonNull(value, "Por favor agregue un tipo de cerveza");
-        if (value.length() < 4) {
+        if (this.value.length() < 4) {
             throw new IllegalArgumentException(" Debe tener mas de 4 caracteres");
-        } else if (value.length() > 20) {
+        } else if (this.value.length() > 20) {
             throw new IllegalArgumentException("Ha excedido el maximo de carcteres permitido");
         }
     }
