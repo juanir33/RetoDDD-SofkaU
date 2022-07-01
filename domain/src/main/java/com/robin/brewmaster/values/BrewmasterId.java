@@ -1,4 +1,4 @@
-package com.robin.lote.values;
+package com.robin.brewmaster.values;
 
 import co.com.sofka.domain.generic.Identity;
 

@@ -2,6 +2,7 @@ package com.robin.lote;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import com.robin.brewmaster.values.BrewmasterId;
 import com.robin.lote.events.*;
 import com.robin.lote.values.*;
 
