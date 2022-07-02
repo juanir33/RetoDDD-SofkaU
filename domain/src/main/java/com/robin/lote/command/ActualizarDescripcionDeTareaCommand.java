@@ -1,6 +1,7 @@
 package com.robin.lote.command;
 
 import co.com.sofka.domain.generic.Command;
+import com.robin.lote.values.Descripcion;
 import com.robin.lote.values.LoteId;
 import com.robin.lote.values.TareaId;
 import com.robin.lote.values.Tiempo;
@@ -8,12 +9,12 @@ import com.robin.lote.values.Tiempo;
 public class ActualizarDescripcionDeTareaCommand extends Command {
     private final LoteId loteId;
     private final TareaId tareaId;
-    private final Tiempo tiempo;
+    private final Descripcion descripcion;
 
-    public ActualizarDescripcionDeTareaCommand(LoteId loteId, TareaId tareaId, Tiempo tiempo) {
+    public ActualizarDescripcionDeTareaCommand(LoteId loteId, TareaId tareaId, Descripcion descripcion) {
         this.loteId = loteId;
         this.tareaId = tareaId;
-        this.tiempo = tiempo;
+        this.descripcion = descripcion;
     }
 
     public LoteId getLoteId() {
@@ -24,7 +25,7 @@ public class ActualizarDescripcionDeTareaCommand extends Command {
         return tareaId;
     }
 
-    public Tiempo getTiempo() {
-        return tiempo;
+    public Descripcion getDescripcion() {
+        return descripcion;
     }
 }

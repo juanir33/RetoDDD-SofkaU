@@ -26,7 +26,7 @@ public class Barril extends Entity<BarrilId> {
     }
     public void llenarBarril(LoteId loteId){
         this.loteId= loteId;
-        this.estado.nuevoEstado("LLENO");
+
     }
 
     public Capacidad capacidad() {

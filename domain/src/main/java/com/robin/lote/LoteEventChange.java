@@ -41,9 +41,9 @@ public class LoteEventChange extends EventChange {
         apply((TiempoDeTareaActualizado event)->{
             var tareaFilter = lote.getTareaPorId(event.getTareaId())
                     .orElseThrow(()->new IllegalArgumentException("La tarea que busca no se encuentra creada"));
-            if(!tareaFilter.tiempo().equals(event.getTiempo())){
-                tareaFilter.actualizarTiempo(event.getTiempo());
-            }throw new IllegalArgumentException("El tiempo nuevo es igual al actual");}
+            if(tareaFilter.tiempo().equals(event.getTiempo())){
+                throw new IllegalArgumentException("El tiempo nuevo es igual al actual");
+            } tareaFilter.actualizarTiempo(event.getTiempo());}
 
         );
         apply((DescripcionDeTareaActualizado event)->{
@@ -53,9 +53,9 @@ public class LoteEventChange extends EventChange {
 
         });
         apply((EtapaTanqueActualizada event)->{
-            if(!lote.tanque.etapa().equals(event.getEtapa())){
-                lote.tanque.actualizarEtapa(event.getEtapa());
-            }throw new IllegalArgumentException("El nombre nuevo es igual al actual");
+            if(lote.tanque.etapa().equals(event.getEtapa())){
+                throw new IllegalArgumentException("La etapa nueva es igual a la actual");
+            } lote.tanque.actualizarEtapa(event.getEtapa());
 
         });
     }

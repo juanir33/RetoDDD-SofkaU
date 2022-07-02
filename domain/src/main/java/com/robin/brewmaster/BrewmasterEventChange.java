@@ -30,6 +30,8 @@ public class BrewmasterEventChange extends EventChange {
         apply((PasswordEnCuentaCambiada event)->{
             if(!brewmaster.cuenta.identity().equals(event.getCuentaId())){
                 throw new IllegalArgumentException("La cuenta que busca no existe");
+            }if(brewmaster.cuenta.password().equals(event.getPassword())){
+                throw new IllegalArgumentException("La contrasenia es igual a la actual");
             }
             brewmaster.cuenta.cambiarPassword(event.getPassword());
         });

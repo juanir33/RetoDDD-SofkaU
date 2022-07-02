@@ -51,17 +51,17 @@ public class LogisticaEventChange extends EventChange {
         apply((EstadoBarrilActualizado event)->{
             var barrilFil = logistica.buscarBarrilPorId(event.getBarrilId())
                     .orElseThrow(()->new IllegalArgumentException("El barril que busca no se encuentra asignado"));
-            if(!barrilFil.estado().equals(event.getEstado())){
-                barrilFil.actualizarEstado(event.getEstado());
-            }throw new IllegalArgumentException("El estado nuevo es igual al actual");
+            if(barrilFil.estado().equals(event.getEstado())){
+                throw new IllegalArgumentException("El estado nuevo es igual al actual") ;
+            }barrilFil.actualizarEstado(event.getEstado());
 
         });
         apply((BarrilEnvasado event)->{
             var barril = logistica.buscarBarrilPorId(event.getBarrilId())
                     .orElseThrow(()->new IllegalArgumentException("El barril que busca no se encuentra asignado"));
-            if(barril.estado().value().equals("VACIO")){
-                barril.llenarBarril(event.getLoteId());
-            }throw new IllegalArgumentException("El barril ya ha sido llenado");
+            if(!barril.estado().value().equals("VACIO")){
+                throw new IllegalArgumentException("El barril ya ha sido llenado");
+            }barril.llenarBarril(event.getLoteId());
         });
 
 
